@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Corapak Warehouse Tools pallet configuration workspace."
+    >
+    <title>Pallet Configurator | Corapak Warehouse Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="app-header">
+      <a class="brand" href="#" aria-label="Corapak Warehouse Tools home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img">
+            <path d="m16 3 11 6.2v13.6L16 29 5 22.8V9.2L16 3Z"></path>
+            <path d="m5 9.2 11 6.3 11-6.3M16 15.5V29"></path>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Corapak</strong>
+          <span>Warehouse Tools</span>
+        </span>
+      </a>
+
+      <div class="header-context" aria-label="Current application">
+        <span class="header-context__divider" aria-hidden="true"></span>
+        <span class="header-context__name">Pallet Configurator</span>
+      </div>
+
+      <div class="header-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Workspace ready</span>
+      </div>
+    </header>
+
+    <main class="app-layout" id="main-content">
+      <aside class="panel config-panel" aria-labelledby="configuration-title">
+        <div class="panel__header config-panel__header">
+          <div>
+            <p class="eyebrow">Setup</p>
+            <h1 id="configuration-title">Pallet Configuration</h1>
+          </div>
+          <span class="step-badge" aria-label="Step 1">01</span>
+        </div>
+
+        <form class="configuration-form" id="configuration-form" novalidate>
+          <fieldset class="form-section">
+            <legend>
+              <span class="section-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 8h16v8H4zM2.5 16h19M6 16v3M18 16v3"></path>
+                </svg>
+              </span>
+              Pallet
+            </legend>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Pallet Length</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="palletLength"
+                    value="48"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Pallet Width</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="palletWidth"
+                    value="40"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Maximum Height</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="maximumHeight"
+                    value="85"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Maximum Weight</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="maximumWeight"
+                    value="1000"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                  >
+                  <span class="input-unit">lb</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>
+              <span class="section-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m4 7 8-4 8 4-8 4-8-4Zm0 0v10l8 4 8-4V7M12 11v10"></path>
+                </svg>
+              </span>
+              Carton
+            </legend>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Length</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="cartonLength"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Width</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="cartonWidth"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Height</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="cartonHeight"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                  >
+                  <span class="input-unit">in</span>
+                </span>
+              </label>
+
+              <label class="field">
+                <span>Weight</span>
+                <span class="input-shell">
+                  <input
+                    type="number"
+                    name="cartonWeight"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                  >
+                  <span class="input-unit">lb</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section options-section">
+            <legend>
+              <span class="section-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 6h5M15 6h5M4 12h9M19 12h1M4 18h2M12 18h8"></path>
+                  <circle cx="12" cy="6" r="3"></circle>
+                  <circle cx="16" cy="12" r="3"></circle>
+                  <circle cx="9" cy="18" r="3"></circle>
+                </svg>
+              </span>
+              Options
+            </legend>
+
+            <label class="toggle-row">
+              <span>
+                <strong>Allow Rotation</strong>
+                <small>Rotate cartons to improve fit</small>
+              </span>
+              <span class="switch">
+                <input type="checkbox" name="allowRotation" checked>
+                <span class="switch__track" aria-hidden="true"></span>
+              </span>
+            </label>
+
+            <label class="toggle-row">
+              <span>
+                <strong>Allow Overhang</strong>
+                <small>Permit cartons beyond pallet edges</small>
+              </span>
+              <span class="switch">
+                <input type="checkbox" name="allowOverhang">
+                <span class="switch__track" aria-hidden="true"></span>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="primary-button" type="submit">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"></path>
+              </svg>
+              <span>Generate Layouts</span>
+            </button>
+            <p class="form-status" id="form-status" aria-live="polite">
+              Enter carton dimensions to begin.
+            </p>
+          </div>
+        </form>
+      </aside>
+
+      <section class="panel preview-panel" aria-labelledby="preview-title">
+        <div class="panel__header preview-panel__header">
+          <div>
+            <p class="eyebrow">Visualization</p>
+            <h2 id="preview-title">Pallet Preview</h2>
+          </div>
+          <span class="view-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18v12H3zM7 10h10M7 14h6"></path>
+            </svg>
+            Top view
+          </span>
+        </div>
+
+        <div class="preview-stage">
+          <div class="stage-grid" aria-hidden="true"></div>
+          <div class="preview-placeholder">
+            <div class="pallet-graphic" aria-hidden="true">
+              <svg viewBox="0 0 260 190" role="img">
+                <defs>
+                  <linearGradient id="pallet-top" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f7b267"></stop>
+                    <stop offset="1" stop-color="#d97706"></stop>
+                  </linearGradient>
+                  <linearGradient id="pallet-side" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#b45309"></stop>
+                    <stop offset="1" stop-color="#78350f"></stop>
+                  </linearGradient>
+                  <filter id="pallet-shadow" x="-20%" y="-20%" width="140%" height="160%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="9" flood-opacity=".2"></feDropShadow>
+                  </filter>
+                </defs>
+                <ellipse cx="130" cy="164" rx="92" ry="14" fill="#0f172a" opacity=".09"></ellipse>
+                <g filter="url(#pallet-shadow)">
+                  <path d="m36 87 92-52 96 52-94 54-94-54Z" fill="url(#pallet-top)"></path>
+                  <path d="m36 87 94 54v20L36 107V87Z" fill="url(#pallet-side)"></path>
+                  <path d="m224 87-94 54v20l94-54V87Z" fill="#92400e"></path>
+                  <g fill="none" stroke="#fff7ed" stroke-opacity=".65" stroke-width="4">
+                    <path d="m58 75 94 54M80 63l94 54M103 50l94 54M128 36l94 53"></path>
+                    <path d="m58 99 94-53M82 113l94-54M106 127l94-54"></path>
+                  </g>
+                  <g fill="#431407" opacity=".68">
+                    <path d="m51 111 19 11v19l-19-11v-19ZM109 144l20 11v19l-20-11v-19Z"></path>
+                    <path d="m190 118 19-11v19l-19 11v-19ZM134 151l19-11v19l-19 11v-19Z"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="placeholder-copy">
+              <h3>Pallet visualization will appear here.</h3>
+              <p>Configure the pallet and carton details, then generate a layout.</p>
+            </div>
+          </div>
+          <span class="stage-axis stage-axis--x" aria-hidden="true">48 in</span>
+          <span class="stage-axis stage-axis--y" aria-hidden="true">40 in</span>
+        </div>
+      </section>
+
+      <aside class="panel stats-panel" aria-labelledby="statistics-title">
+        <div class="panel__header stats-panel__header">
+          <div>
+            <p class="eyebrow">Summary</p>
+            <h2 id="statistics-title">Layout Statistics</h2>
+          </div>
+          <span class="stats-status" aria-label="No layout generated">
+            <span aria-hidden="true"></span>
+            Awaiting layout
+          </span>
+        </div>
+
+        <dl class="stats-grid">
+          <div class="stat-card">
+            <dt>Boxes Per Layer</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Layers</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card stat-card--primary">
+            <dt>Total Boxes</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Total Height</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Total Weight</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Pallet Utilization</dt>
+            <dd>--</dd>
+          </div>
+          <div class="stat-card stat-card--wide">
+            <dt>Remaining Space</dt>
+            <dd>--</dd>
+          </div>
+        </dl>
+
+        <div class="stats-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 11v5M12 8h.01"></path>
+          </svg>
+          <p>Statistics will update after a layout is generated.</p>
+        </div>
+      </aside>
+
+      <section class="panel workspace-panel" aria-labelledby="workspace-title">
+        <h2 class="visually-hidden" id="workspace-title">Layout workspace</h2>
+
+        <div class="tabs" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Layout workspace views">
+            <button
+              class="tab-button"
+              id="layout-options-tab"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="layout-options-panel"
+              tabindex="0"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16v5H4zM4 14h7v5H4zM15 14h5v5h-5z"></path>
+              </svg>
+              Layout Options
+              <span class="tab-count" aria-label="0 options">0</span>
+            </button>
+            <button
+              class="tab-button"
+              id="layer-viewer-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="layer-viewer-panel"
+              tabindex="-1"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m4 7 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4"></path>
+              </svg>
+              Layer Viewer
+            </button>
+            <button
+              class="tab-button"
+              id="three-d-view-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="three-d-view-panel"
+              tabindex="-1"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m4 7 8-4 8 4v10l-8 4-8-4V7Zm0 0 8 4 8-4M12 11v10"></path>
+              </svg>
+              3D View
+            </button>
+          </div>
+
+          <div
+            class="tab-panel"
+            id="layout-options-panel"
+            role="tabpanel"
+            aria-labelledby="layout-options-tab"
+            tabindex="0"
+          >
+            <div class="tab-placeholder">
+              <span class="tab-placeholder__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 5h16v5H4zM4 14h7v5H4zM15 14h5v5h-5z"></path>
+                </svg>
+              </span>
+              <div>
+                <h3>No layout options yet</h3>
+                <p>Generated layout alternatives will be available here.</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="tab-panel"
+            id="layer-viewer-panel"
+            role="tabpanel"
+            aria-labelledby="layer-viewer-tab"
+            tabindex="0"
+            hidden
+          >
+            <div class="tab-placeholder">
+              <span class="tab-placeholder__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m4 7 8-4 8 4-8 4-8-4Zm0 5 8 4 8-4M4 17l8 4 8-4"></path>
+                </svg>
+              </span>
+              <div>
+                <h3>Layer viewer coming soon</h3>
+                <p>Individual pallet layers will be displayed here.</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="tab-panel"
+            id="three-d-view-panel"
+            role="tabpanel"
+            aria-labelledby="three-d-view-tab"
+            tabindex="0"
+            hidden
+          >
+            <div class="tab-placeholder">
+              <span class="tab-placeholder__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m4 7 8-4 8 4v10l-8 4-8-4V7Zm0 0 8 4 8-4M12 11v10"></path>
+                </svg>
+              </span>
+              <div>
+                <h3>3D view coming soon</h3>
+                <p>An interactive three-dimensional pallet model will appear here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Corapak Warehouse Tools</span>
+      <span aria-hidden="true">•</span>
+      <span>Pallet Configurator</span>
+    </footer>
+  </body>
+</html>
