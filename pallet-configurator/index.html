@@ -62,65 +62,129 @@
 
             <div class="field-grid">
               <label class="field">
-                <span>Pallet Length</span>
+                <span class="field-label">Pallet Length</span>
                 <span class="input-shell">
                   <input
                     type="number"
                     name="palletLength"
                     value="48"
-                    min="0"
+                    min="0.01"
                     step="0.01"
                     inputmode="decimal"
+                    aria-describedby="pallet-length-error"
+                    data-pallet-field="length"
                   >
                   <span class="input-unit">in</span>
                 </span>
+                <span class="field-error" id="pallet-length-error"></span>
               </label>
 
               <label class="field">
-                <span>Pallet Width</span>
+                <span class="field-label">Pallet Width</span>
                 <span class="input-shell">
                   <input
                     type="number"
                     name="palletWidth"
                     value="40"
-                    min="0"
+                    min="0.01"
                     step="0.01"
                     inputmode="decimal"
+                    aria-describedby="pallet-width-error"
+                    data-pallet-field="width"
                   >
                   <span class="input-unit">in</span>
                 </span>
+                <span class="field-error" id="pallet-width-error"></span>
               </label>
 
               <label class="field">
-                <span>Maximum Height</span>
+                <span class="field-label">
+                  Maximum Loaded Height
+                  <small>Includes pallet</small>
+                </span>
                 <span class="input-shell">
                   <input
                     type="number"
-                    name="maximumHeight"
+                    name="maximumLoadedHeight"
                     value="85"
-                    min="0"
+                    min="0.01"
                     step="0.01"
                     inputmode="decimal"
+                    aria-describedby="maximum-loaded-height-error"
+                    data-pallet-field="maximumLoadedHeight"
                   >
                   <span class="input-unit">in</span>
                 </span>
+                <span class="field-error" id="maximum-loaded-height-error"></span>
               </label>
 
               <label class="field">
-                <span>Maximum Weight</span>
+                <span class="field-label">
+                  Maximum Loaded Weight
+                  <small>Includes pallet</small>
+                </span>
                 <span class="input-shell">
                   <input
                     type="number"
-                    name="maximumWeight"
+                    name="maximumLoadedWeight"
                     value="1000"
-                    min="0"
+                    min="0.01"
                     step="0.01"
                     inputmode="decimal"
+                    aria-describedby="maximum-loaded-weight-error"
+                    data-pallet-field="maximumLoadedWeight"
                   >
                   <span class="input-unit">lb</span>
                 </span>
+                <span class="field-error" id="maximum-loaded-weight-error"></span>
               </label>
             </div>
+
+            <details class="advanced-fields">
+              <summary>
+                <span>Advanced pallet details</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m7 9 5 5 5-5"></path>
+                </svg>
+              </summary>
+              <div class="field-grid advanced-fields__content">
+                <label class="field">
+                  <span class="field-label">Pallet Height</span>
+                  <span class="input-shell">
+                    <input
+                      type="number"
+                      name="palletHeight"
+                      value="6"
+                      min="0.01"
+                      step="0.01"
+                      inputmode="decimal"
+                      aria-describedby="pallet-height-error"
+                      data-pallet-field="height"
+                    >
+                    <span class="input-unit">in</span>
+                  </span>
+                  <span class="field-error" id="pallet-height-error"></span>
+                </label>
+
+                <label class="field">
+                  <span class="field-label">Empty Pallet Weight</span>
+                  <span class="input-shell">
+                    <input
+                      type="number"
+                      name="emptyPalletWeight"
+                      value="50"
+                      min="0"
+                      step="0.01"
+                      inputmode="decimal"
+                      aria-describedby="empty-pallet-weight-error"
+                      data-pallet-field="emptyWeight"
+                    >
+                    <span class="input-unit">lb</span>
+                  </span>
+                  <span class="field-error" id="empty-pallet-weight-error"></span>
+                </label>
+              </div>
+            </details>
           </fieldset>
 
           <fieldset class="form-section">
@@ -246,7 +310,11 @@
         </form>
       </aside>
 
-      <section class="panel preview-panel" aria-labelledby="preview-title">
+      <section
+        class="panel preview-panel pallet-workspace"
+        aria-labelledby="preview-title"
+        data-pallet-workspace
+      >
         <div class="panel__header preview-panel__header">
           <div>
             <p class="eyebrow">Visualization</p>
@@ -260,48 +328,98 @@
           </span>
         </div>
 
-        <div class="preview-stage">
-          <div class="stage-grid" aria-hidden="true"></div>
-          <div class="preview-placeholder">
-            <div class="pallet-graphic" aria-hidden="true">
-              <svg viewBox="0 0 260 190" role="img">
-                <defs>
-                  <linearGradient id="pallet-top" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f7b267"></stop>
-                    <stop offset="1" stop-color="#d97706"></stop>
-                  </linearGradient>
-                  <linearGradient id="pallet-side" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#b45309"></stop>
-                    <stop offset="1" stop-color="#78350f"></stop>
-                  </linearGradient>
-                  <filter id="pallet-shadow" x="-20%" y="-20%" width="140%" height="160%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="9" flood-opacity=".2"></feDropShadow>
-                  </filter>
-                </defs>
-                <ellipse cx="130" cy="164" rx="92" ry="14" fill="#0f172a" opacity=".09"></ellipse>
-                <g filter="url(#pallet-shadow)">
-                  <path d="m36 87 92-52 96 52-94 54-94-54Z" fill="url(#pallet-top)"></path>
-                  <path d="m36 87 94 54v20L36 107V87Z" fill="url(#pallet-side)"></path>
-                  <path d="m224 87-94 54v20l94-54V87Z" fill="#92400e"></path>
-                  <g fill="none" stroke="#fff7ed" stroke-opacity=".65" stroke-width="4">
-                    <path d="m58 75 94 54M80 63l94 54M103 50l94 54M128 36l94 53"></path>
-                    <path d="m58 99 94-53M82 113l94-54M106 127l94-54"></path>
-                  </g>
-                  <g fill="#431407" opacity=".68">
-                    <path d="m51 111 19 11v19l-19-11v-19ZM109 144l20 11v19l-20-11v-19Z"></path>
-                    <path d="m190 118 19-11v19l-19 11v-19ZM134 151l19-11v19l-19 11v-19Z"></path>
-                  </g>
-                </g>
+        <div class="workspace-toolbar" role="toolbar" aria-label="Pallet workspace tools">
+          <button
+            class="workspace-tool workspace-tool--grid is-active"
+            type="button"
+            aria-pressed="true"
+            data-workspace-action="toggle-grid"
+            title="Show or hide the measurement grid"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16v16H4zM4 10h16M4 16h16M10 4v16M16 4v16"></path>
+            </svg>
+            <span data-grid-label>Grid on</span>
+          </button>
+
+          <span class="workspace-toolbar__divider" aria-hidden="true"></span>
+
+          <div class="zoom-controls" aria-label="Zoom controls">
+            <button
+              class="workspace-tool workspace-tool--icon"
+              type="button"
+              data-workspace-action="zoom-out"
+              aria-label="Zoom out"
+              title="Zoom out"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                <path d="M6.8 10.5h7.4M15.5 15.5 21 21"></path>
               </svg>
-            </div>
-            <div class="placeholder-copy">
-              <h3>Pallet visualization will appear here.</h3>
-              <p>Configure the pallet and carton details, then generate a layout.</p>
-            </div>
+            </button>
+            <output class="zoom-output" aria-live="polite" data-workspace-zoom>
+              100%
+            </output>
+            <button
+              class="workspace-tool workspace-tool--icon"
+              type="button"
+              data-workspace-action="zoom-in"
+              aria-label="Zoom in"
+              title="Zoom in"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                <path d="M6.8 10.5h7.4M10.5 6.8v7.4M15.5 15.5 21 21"></path>
+              </svg>
+            </button>
           </div>
-          <span class="stage-axis stage-axis--x" aria-hidden="true">48 in</span>
-          <span class="stage-axis stage-axis--y" aria-hidden="true">40 in</span>
+
+          <button
+            class="workspace-tool workspace-tool--reset"
+            type="button"
+            data-workspace-action="reset"
+            title="Reset zoom and center the pallet"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4v6h6M5.5 16.5a8 8 0 1 0 .3-9.3L4 10"></path>
+            </svg>
+            <span>Reset view</span>
+          </button>
         </div>
+
+        <div class="workspace-viewport">
+          <div
+            class="workspace-canvas"
+            data-workspace-canvas
+            aria-label="Interactive pallet drawing area"
+          ></div>
+          <p class="workspace-empty-state">
+            Enter carton dimensions and generate a layout to place cartons.
+          </p>
+          <div class="workspace-origin-key" aria-hidden="true">
+            <span></span>
+            <span>Origin: pallet top-left</span>
+          </div>
+        </div>
+
+        <dl class="pallet-spec-summary" aria-label="Current pallet specifications">
+          <div>
+            <dt>Footprint</dt>
+            <dd data-pallet-spec="footprint">48 × 40 in</dd>
+          </div>
+          <div>
+            <dt>Pallet height</dt>
+            <dd data-pallet-spec="height">6 in</dd>
+          </div>
+          <div>
+            <dt>Max loaded height</dt>
+            <dd data-pallet-spec="maximumLoadedHeight">85 in</dd>
+          </div>
+          <div>
+            <dt>Max loaded weight</dt>
+            <dd data-pallet-spec="maximumLoadedWeight">1,000 lb</dd>
+          </div>
+        </dl>
       </section>
 
       <aside class="panel stats-panel" aria-labelledby="statistics-title">

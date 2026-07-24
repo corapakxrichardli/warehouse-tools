@@ -1,105 +1,82 @@
 # Development Roadmap
 
-## Phase 1
+## Completed foundations
 
-Project Setup
+### Phase 1 — Project setup
 
-Documentation
+- [x] Documentation
+- [x] Repository structure
+- [x] Frontend-only application boundary
 
-GitHub
+### Milestone 1 — Application shell
 
-Repository Structure
+- [x] Responsive three-panel interface
+- [x] Pallet and carton inputs
+- [x] Statistics placeholders
+- [x] Tabbed lower workspace
+- [x] Accessible, warehouse-friendly visual system
 
----
+## Active milestone
 
-## Phase 2
+### Milestone 1.5 — Interactive 2D workspace foundation
 
-User Interface
+- [x] Canonical physical pallet model
+- [x] Editable pallet height and empty weight
+- [x] Inline pallet validation with last-valid-model behavior
+- [x] Responsive proportional SVG pallet
+- [x] Inch grid with adaptive detail
+- [x] Edge rulers and dimension labels
+- [x] Pallet specification summary
+- [x] Bounded zoom, reset, and background panning
+- [x] Public carton-rendering API
+- [x] Optional `?demo=1` renderer preview
+- [x] DOM-free model, geometry, grid, viewport, and state tests
 
-Inputs
+Milestone 1.5 establishes the interface and renderer only. It does not generate
+or pack cartons.
 
-Statistics Panel
+## Upcoming
 
-Visualization Panel
+### Phase 3 — Packing engine
 
----
+- Automatic layout generation
+- Rotation-aware placement
+- Multiple layout options
+- Boundary, height, and weight validation
+- Deterministic results and layout deduplication
 
-## Phase 3
+### Phase 4 — Generated 2D layouts
 
-Packing Algorithm
+- Connect packing results to the SVG renderer
+- Layer Viewer
+- Layout comparison
 
-Automatic Layout Generation
+### Phase 5 — 3D visualization
 
-Multiple Layout Options
+- Interactive camera
+- Layer highlighting
 
----
+### Phase 6 — Free-design mode
 
-## Phase 4
+- Drag
+- Rotate
+- Duplicate
+- Delete
+- Snap to grid
 
-2D Visualization
+### Phase 7 — Export
 
-SVG Rendering
+- PDF
+- PNG
+- Print
 
-Layer Viewer
+### Phase 8 — Persistence
 
----
+- Save and load layouts
+- Customer library
 
-## Phase 5
+### Phase 9 — Integrations
 
-3D Visualization
-
-Interactive Camera
-
-Layer Highlighting
-
----
-
-## Phase 6
-
-Free Design Mode
-
-Drag
-
-Rotate
-
-Duplicate
-
-Delete
-
-Snap to Grid
-
----
-
-## Phase 7
-
-Export
-
-PDF
-
-PNG
-
-Print
-
----
-
-## Phase 8
-
-Persistence
-
-Save Layouts
-
-Load Layouts
-
-Customer Library
-
----
-
-## Phase 9
-
-Integrations
-
-Odoo
-
-AI Optimization
-
-SKU Database
+- Odoo
+- AI optimization
+- SKU database

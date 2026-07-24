@@ -1,0 +1,8 @@
+{
+  "name": "corapak-pallet-configurator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
